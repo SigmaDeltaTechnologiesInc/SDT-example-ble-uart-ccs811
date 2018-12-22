@@ -1,4 +1,4 @@
-/* SDT-example-ble-uart-echo
+/* SDT-example-ble-uart-ccs811
  * 
  * Copyright (c) 2018 Sigma Delta Technologies Inc.
  * 
@@ -131,6 +131,7 @@ void callbackBleDisconnection(const Gap::DisconnectionCallbackParams_t* params) 
     serial_pc.printf("Disconnected!\n");
     serial_pc.printf("Restarting the advertising process\n\r");
     b_bleConnect = false;
+    b_uartStart = false;
     ticker.detach();
     *pDO_led = LED_ON;
     ble_SDTDevice.gap().startAdvertising();
